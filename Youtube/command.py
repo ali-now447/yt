@@ -48,7 +48,7 @@ async def start(client, message):
             ],
             [
                 InlineKeyboardButton('👩‍💻 Developer', url='https://t.me/SSSi5'),
-                InlineKeyboardButton('👥 ch-Group', url='https://t.me/lllcz'),
+                InlineKeyboardButton('👥 For more', url='https://t.me/lllcz'),
             ],
             [
                 InlineKeyboardButton('⛔️ Close', callback_data='cancel')
