@@ -29,7 +29,7 @@ async def handle_force_subscribe(bot, message):
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("Pʟᴇᴀsᴇ Mʏ Cʜᴀɴɴᴇʟ 🍓", url=invite_link.invite_link)
+                        InlineKeyboardButton("Mʏ Cʜᴀɴɴᴇʟ 🍓 .", url=invite_link.invite_link)
                     ],
                 ]
             ),
