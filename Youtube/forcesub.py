@@ -25,11 +25,11 @@ async def handle_force_subscribe(bot, message):
     except UserNotParticipant:
         await bot.send_message(
             chat_id=message.from_user.id,
-            text="Pʟᴇᴀsᴇ Jᴏɪɴ Mʏ Uᴘᴅᴀᴛᴇs Cʜᴀɴɴᴇʟ Tᴏ Usᴇ Mᴇ!\n\nDᴜᴇ ᴛᴏ Oᴠᴇʀʟᴏᴀᴅ, Oɴʟʏ Cʜᴀɴɴᴇʟ Sᴜʙsᴄʀɪʙᴇʀs Cᴀɴ Usᴇ Mᴇ!",
+            text="عُمري أشترك اول بالقناة!\n\nCh- @mmmsc .",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("Pʟᴇᴀsᴇ Jᴏɪɴ Mʏ Cʜᴀɴɴᴇʟ 🍓", url=invite_link.invite_link)
+                        InlineKeyboardButton("Pʟᴇᴀsᴇ Mʏ Cʜᴀɴɴᴇʟ 🍓", url=invite_link.invite_link)
                     ],
                 ]
             ),
