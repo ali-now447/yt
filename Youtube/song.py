@@ -2,7 +2,7 @@ import os
 import requests
 import yt_dlp
 from pyrogram import filters
-from strings.filters import command
+import command
 from youtube_search import YoutubeSearch
 import app
 
