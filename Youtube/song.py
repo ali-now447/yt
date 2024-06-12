@@ -3,9 +3,7 @@ import requests
 import yt_dlp
 from pyrogram import filters
 from youtube_search import YoutubeSearch
-from pyrogram import Client
 
-@app.on_message(filters.command(["/song", "بحث", "تحميل", "تنزيل", "يوت", "yt"]))
 def song(client, message):
     user_id = message.from_user.id
     user_name = message.from_user.first_name
@@ -47,7 +45,7 @@ def song(client, message):
         )
         m.delete()
     except Exception as e:
-        m.edit(f"[Victorious](t.me/mmmsc) 💕**\n\**خطأ :** {e}")
+        m.edit(f"[Victorious](t.me/mmmsc) 💕**\n**خطأ :** {e}")
         print(e)
 
     try:
@@ -59,7 +57,3 @@ def song(client, message):
 __mod_name__ = "اليوتيوب"
 __help__ = """
 بحث أو تحميل مع رابط الأغنية أو اسمها
-"""
-
-# تأكد من أنك تقوم باستيراد الدالة من `song.py` في `__init__.py`
-# ملف __init__.py سيكون فارغاً فقط للتحقق من وجود الحزمة
