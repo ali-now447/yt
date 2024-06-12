@@ -4,7 +4,7 @@ import yt_dlp
 from pyrogram import filters
 from youtube_search import YoutubeSearch
 from . import command
-from bot import app
+from . import app
 
 def song(client, message):
     user_id = message.from_user.id
