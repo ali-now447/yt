@@ -2,22 +2,20 @@ import os
 import requests
 import yt_dlp
 from pyrogram import filters
-import command
 from youtube_search import YoutubeSearch
-import app
+from pyrogram import Client
 
-@app.on_message(command(["/song", "بحث","تحميل","تنزيل","يوت","yt"]))
+@app.on_message(filters.command(["/song", "بحث", "تحميل", "تنزيل", "يوت", "yt"]))
 def song(client, message):
     user_id = message.from_user.id
     user_name = message.from_user.first_name
     chutiya = message.from_user.mention
 
-    query = ""
-    for i in message.command[1:]:
-        query += " " + str(i)
+    query = " ".join(message.command[1:])
     print(query)
     m = message.reply("جاري البحث لحظة...")
     ydl_opts = {"format": "bestaudio[ext=m4a]"}
+    
     try:
         results = YoutubeSearch(query, max_results=1).to_dict()
         link = f"https://youtube.com{results[0]['url_suffix']}"
@@ -28,18 +26,18 @@ def song(client, message):
         open(thumb_name, "wb").write(thumb.content)
 
     except Exception as e:
-        m.edit(
-            "لم يتم العثور على الأغنية، يرجى المحاولة مرة أخرى!"
-        )
+        m.edit("لم يتم العثور على الأغنية، يرجى المحاولة مرة أخرى!")
         print(str(e))
         return
+
     m.edit("جارٍ التنزيل... الرجاء الانتظار!")
     try:
         with yt_dlp.YoutubeDL(ydl_opts) as ydl:
             info_dict = ydl.extract_info(link, download=False)
             audio_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
-        rep = f"الاسم: {title[:25]}\nبواسطة:​ {chutiya}"
+        
+        rep = f"الاسم: {title[:25]}\nبواسطة: {chutiya}"
         message.reply_audio(
             audio_file,
             caption=rep,
@@ -49,9 +47,7 @@ def song(client, message):
         )
         m.delete()
     except Exception as e:
-        m.edit(
-            f"[Victorious](t.me/mmmsc) 💕**\n\**خطأ :** {e}"
-        )
+        m.edit(f"[Victorious](t.me/mmmsc) 💕**\n\**خطأ :** {e}")
         print(e)
 
     try:
@@ -62,4 +58,8 @@ def song(client, message):
 
 __mod_name__ = "اليوتيوب"
 __help__ = """
-بحث أو تحميل مع رابط الأغنية أو اسمها """
+بحث أو تحميل مع رابط الأغنية أو اسمها
+"""
+
+# تأكد من أنك تقوم باستيراد الدالة من `song.py` في `__init__.py`
+# ملف __init__.py سيكون فارغاً فقط للتحقق من وجود الحزمة
