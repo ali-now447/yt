@@ -1,3 +1,4 @@
+youtube_search
 tgcrypto
 pyrogram
 yt_dlp
