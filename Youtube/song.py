@@ -4,7 +4,7 @@ import yt_dlp
 from pyrogram import filters
 from strings.filters import command
 from youtube_search import YoutubeSearch
-from ZelzalMusic import app
+import app
 
 @app.on_message(command(["/song", "بحث","تحميل","تنزيل","يوت","yt"]))
 def song(client, message):
