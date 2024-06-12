@@ -3,7 +3,7 @@ import requests
 import yt_dlp
 from pyrogram import filters
 from youtube_search import YoutubeSearch
-import command
+from . import command
 from bot import app
 
 def song(client, message):
