@@ -49,7 +49,6 @@ async def process_youtube_link(client, message):
                 await downloading_msg.delete()
                 await uploading_msg.delete()
 
-                await message.reply_text("\n\nDev : @lllcz 🍓\n تم التحميل!")
             else:
                 logging.error("No video streams found.")
                 await message.reply_text("خطأ: لم يتم تحميل الفيديو .")
