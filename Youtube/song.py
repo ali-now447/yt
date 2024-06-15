@@ -8,7 +8,7 @@ from pyrogram.types import InputMediaAudio
 from Youtube.config import Config
 from youtube_search import YoutubeSearch
 
-app = Client("my_bot", api_id=Youtube.Config.API_ID, api_hash=Youtube.Config.API_HASH, bot_token=Youtube.Config.BOT_TOKEN)
+app = Client("my_bot", api_id=Config.API_ID, api_hash=Config.API_HASH, bot_token=Config.BOT_TOKEN)
 
 @app.on_message(filters.command(["song", "بحث", "تحميل", "تنزيل", "يوت", "yt"]))
 async def song(client, message):
