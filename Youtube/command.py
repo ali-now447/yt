@@ -32,29 +32,35 @@ async def about(client, message):
 
 
 # Start command handler
+# Start command handler
 @Client.on_message(filters.private & filters.command("start"))
 async def start(client, message):
     if Config.CHANNEL:
-      fsub = await handle_force_subscribe(client, message)
-      if fsub == 400:
-        return
-    #user = message.from_user
-    await message.reply_text(
-        text=Translation.START_TEXT.format(message.from_user.first_name),
+        fsub = await handle_force_subscribe(client, message)
+        if fsub == 400:
+            return
+
+    # إرسال الصورة مع القائمة الانلاين
+    photo_url = 'https://telegra.ph/file/11ab7789ca472d514b3e9.jpg'  # رابط الصورة التي ترغب في استخدامها
+    await client.send_photo(
+        chat_id=message.chat.id,
+        photo=photo_url,
+        caption=Translation.START_TEXT.format(message.from_user.first_name),
         reply_markup=InlineKeyboardMarkup(
-        [
             [
-                InlineKeyboardButton('📍 Update Channel', url='https://t.me/mmmsc'),
-            ],
-            [
-                InlineKeyboardButton('👩‍💻 Developer', url='https://t.me/SSSi5'),
-                InlineKeyboardButton('👥 For more', url='https://t.me/lllcz'),
-            ],
-            [
-                InlineKeyboardButton('⛔️ Close', callback_data='cancel')
+                [
+                    InlineKeyboardButton('📍 Update Channel', url='https://t.me/mmmsc'),
+                ],
+                [
+                    InlineKeyboardButton('👩‍💻 Developer', url='https://t.me/SSSi5'),
+                    InlineKeyboardButton('👥 For more', url='https://t.me/lllcz'),
+                ],
+                [
+                    InlineKeyboardButton('⛔️ Close', callback_data='cancel')
+                ]
             ]
-        ]
-    ))
+        )
+    )
 
 # Help command handler
 @Client.on_message(filters.command("help"))
