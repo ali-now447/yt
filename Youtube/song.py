@@ -10,7 +10,7 @@ from youtube_search import YoutubeSearch
 
 app = Client("my_bot", api_id=Config.API_ID, api_hash=Config.API_HASH, bot_token=Config.BOT_TOKEN)
 
-@Client.on_message(filters.regex(r'^(song|بحث|تحميل|تنزيل|يوت|yt)\s'))
+@Client.on_message(filters.regex(r'^(song|بحث|تحميل|يوت|yt|Yt|YT|)\s'))
 async def song(client, message):
     try:
         user_name = message.from_user.first_name
