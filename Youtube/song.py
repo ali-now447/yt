@@ -10,11 +10,11 @@ from youtube_search import YoutubeSearch
 
 app = Client("my_bot", api_id=Config.API_ID, api_hash=Config.API_HASH, bot_token=Config.BOT_TOKEN)
 
-@Client.on_message(filters.command(["song", "بحث", "تحميل", "تنزيل", "يوت", "yt"]))
+@Client.on_message(filters.regex(r'^(song|بحث|تحميل|تنزيل|يوت|yt)\s'))
 async def song(client, message):
     try:
         user_name = message.from_user.first_name
-        query = " ".join(message.command[1:])
+        query = message.text.split(maxsplit=1)[1]  # Extract the query without the command word
         print(query)
         m = await message.reply("جاري البحث لحظة...")
         
@@ -73,5 +73,3 @@ __mod_name__ = "اليوتيوب"
 __help__ = """
 بحث أو تحميل مع رابط الأغنية أو اسمها
 """
-
-
