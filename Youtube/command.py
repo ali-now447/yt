@@ -41,7 +41,7 @@ async def start(client, message):
             return
 
     # إرسال الصورة مع القائمة الانلاين
-    photo_url = 'https://telegra.ph/file/11ab7789ca472d514b3e9.jpg'  # رابط الصورة التي ترغب في استخدامها
+    photo_url = 'https://telegra.ph/file/21270c748132fa563ffdc.jpg'  # رابط الصورة التي ترغب في استخدامها
     await client.send_photo(
         chat_id=message.chat.id,
         photo=photo_url,
