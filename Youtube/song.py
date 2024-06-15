@@ -47,7 +47,7 @@ async def song(client, message):
             await message.reply_audio(
                 audio_file,
                 caption=rep,
-                performer="موسيقى تيليجرام",
+                performer="@mmmsc",
                 thumb=thumb_name,
                 title=title,
             )
