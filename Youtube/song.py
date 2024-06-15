@@ -10,7 +10,7 @@ from youtube_search import YoutubeSearch
 
 app = Client("my_bot", api_id=Config.API_ID, api_hash=Config.API_HASH, bot_token=Config.BOT_TOKEN)
 
-@app.on_message(filters.command(["song", "بحث", "تحميل", "تنزيل", "يوت", "yt"]))
+@Client.on_message(filters.command(["song", "بحث", "تحميل", "تنزيل", "يوت", "yt"]))
 async def song(client, message):
     try:
         user_name = message.from_user.first_name
@@ -74,5 +74,4 @@ __help__ = """
 بحث أو تحميل مع رابط الأغنية أو اسمها
 """
 
-# Run the client
-app.run()
+
