@@ -3,4 +3,5 @@ tgcrypto
 pyrogram
 yt_dlp
 flask
+schedule
 gunicorn==20.1.0
