@@ -1,5 +1,4 @@
 import os
-import schedule
 import time
 from datetime import datetime, timedelta
 from pyrogram import Client
